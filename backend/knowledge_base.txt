@@ -1,0 +1,21 @@
+college name: Shreeyash College of Engineering and Technology (SYCET)
+address: Gut No. 258, Satara Parisar, Aurangabad, Maharashtra - 431010
+principal: Dr. B. M. Patil
+chairman: Er. Basawaraj Vishwanath Mangrule
+academic dean:  Dr. P.M. Ardhapurkar
+established: 2008
+institute code:02112
+vision & mission : At Shreeyash Pratishthan, we believe education is most effective when it extends beyond the classroom into real-world experiences. Our goal is to equip students not just with theoretical knowledge but also with practical skills essential for today’s competitive job market.
+affiliation: Dr. Babasaheb Ambedkar Technological University (DBATU)
+approved by: AICTE, New Delhi
+email: info@sycet.org
+phone: 0240-6608772 / 6608777
+website: https://sycet.org
+admission process: Admissions are conducted based on MH-CET or JEE scores through CAP rounds by DTE Maharashtra.
+fees structure: For B.Tech – approximately ₹3.2 lakhs total. Polytechnic – ₹1.5 lakhs. MBA – ₹1.8 lakhs.
+departments: Computer Science,AIML,DS, Civil, Mechanical, Electrical, E&TC,
+hostel: Available for boys and girls within campus with mess facility.
+placement: Over 800+ students placed in 400+ companies across India.
+companies vi
+facilities: Library, laboratories, sports, canteen, transportation, Wi-Fi campus.
+HOD OF AIML Department is Prof. S. S. Mandawale

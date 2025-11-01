@@ -1,0 +1,55 @@
+/* .backdrop-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+} */
+/* 
+#loginh2 {
+    color: #f0b429;
+}
+
+#loginpara {
+    color: linear-gradient(135deg, #002b5c, #004aad);
+}
+
+#chat-box {
+    background-color: #4568dc; /* Solid fallback color */
+/* background-image: linear-gradient(to right, #4568dc, #b06ab3);
+}
+
+/* #header {
+    background: linear-gradient(135deg, #002b5c, #004aad);
+} */
+
+/* small reusable helper */
+.glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+/* typing cursor style for the typing animation */
+.typing-cursor::after {
+  content: "|";
+  margin-left: 4px;
+  opacity: 0.8;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* custom scrollbar (light & dark) */
+.chat-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05));
+}
+:root {
+  --accent-light-1: #6fb1ff;
+  --accent-light-2: #c490ff;
+  --accent-dark-1: #2b0471;
+  --accent-dark-2: #4f2a8e;
+}

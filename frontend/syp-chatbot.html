@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <title>Shreeyash Sahayak Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+
+  <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-sky-50 to-violet-50 dark:from-[#0b1020] dark:via-[#09031a] dark:to-[#1b0036] transition-colors">
+
+  <!-- ======= Chat Container (centered card) ======= -->
+  <div id="chat-card" class="w-full max-w-4xl mx-4 md:mx-0 rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300"
+       style="height: 88vh;">
+
+    <!-- Header: logo (left) + title + controls (right) -->
+    <div class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-900 border-b dark:border-gray-700">
+      <div class="flex items-center gap-4">
+        <!-- Circular logo (left) -->
+        <!-- NOTE: Flask typically serves images at /static/..., adjust if needed -->
+        <img id="headerLogo" src="./static/syp-logo.png" alt="logo"
+             class="w-12 h-12 rounded-full shadow-sm object-cover"/>
+
+        <div>
+          <div class="text-lg font-semibold text-gray-900 dark:text-white">Shreeyash Sahayak</div>
+          <div class="text-xs text-gray-500 dark:text-gray-300">Your Campus AI Assistant</div>
+        </div>
+      </div>
+
+      <!-- Controls: theme toggle, voice toggle, logout (hidden until logged in) -->
+      <div class="flex items-center gap-3">
+        <!-- Theme toggle button -->
+        <button id="themeToggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <i id="themeIcon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-300"></i>
+        </button>
+
+        <!-- Voice toggle (text indicates state) -->
+        <button id="voiceToggle" class="p-2 rounded-md bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition flex items-center gap-2">
+          <i id="voiceIcon" class="fa-solid fa-volume-high text-indigo-600 dark:text-indigo-300"></i>
+          <span id="voiceLabel" class="text-xs text-gray-700 dark:text-gray-200">Voice: ON</span>
+        </button>
+
+        <!-- Logout button -->
+        <button id="logoutBtn" class="hidden p-2 rounded-full bg-red-500 hover:bg-red-600 text-white transition" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ======= Chat area (left side with messages) ======= -->
+    <div class="flex h-[calc(88vh-128px)] bg-transparent">
+      <div class="flex-1 flex flex-col">
+        <!-- messages scroll area -->
+        <div id="chat-box" class="flex-1 overflow-y-auto p-6 chat-scroll space-y-4 bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(7,6,15,0.55)]">
+          <!-- initial hint message -->
+          <div class="w-full text-center text-sm text-gray-600 dark:text-gray-300 select-none">Chat started. Ask me anything about Shreeyash College!</div>
+        </div>
+
+        <!-- ======= Input bar area (ChatGPT style) ======= -->
+        <div class="p-4 bg-white dark:bg-gray-900 border-t dark:border-gray-700">
+          <form id="chat-form" class="flex items-center gap-3 max-w-full">
+            <!-- mic button -->
+            <button type="button" id="micButton" title="Voice input" class="p-3 rounded-full bg-gradient-to-br from-white to-slate-100 dark:from-gray-800 dark:to-gray-800 shadow-sm hover:scale-105 transform transition">
+              <i id="micIcon" class="fa-solid fa-microphone text-indigo-600 dark:text-indigo-300"></i>
+            </button>
+
+            <!-- input (big, rounded) -->
+            <input id="user-input" autocomplete="off" type="text" name="message"
+                   placeholder="Message Shreeyash Sahayak..."
+                   class="flex-1 px-4 py-3 rounded-full border border-gray-200 dark:border-gray-700 shadow-inner bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-300"/>
+
+            <!-- send button (circle with icon) -->
+            <button id="sendBtn" type="submit" class="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Animated Glass Login Modal (appears on load unless logged in) ======= -->
+  <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 opacity-0 pointer-events-none transition-all duration-400">
+    <div id="modalCard" class="w-[360px] rounded-2xl p-6 glass border border-white/20 transform translate-y-4 scale-95 opacity-0 transition-all duration-500">
+      <!-- logo inside modal -->
+      <img src="./static/syp-logo.png" alt="logo" class="w-20 h-20 mx-auto rounded-full shadow-md mb-3 object-cover" />
+      <h3 class="text-center text-xl font-semibold text-white">Welcome to Shreeyash Sahayak</h3>
+      <p class="text-center text-xs text-gray-200 mb-4">Login with your PRN or continue as Guest</p>
+
+      <input id="prnInput" type="text" placeholder="Enter your PRN (e.g. 202501000001)"
+             class="w-full px-3 py-2 rounded-lg mb-3 bg-white/80 text-black focus:ring-2 focus:ring-indigo-300" />
+
+      <div id="loginError" class="text-sm text-red-400 mb-2 hidden">Invalid PRN. Please try again.</div>
+
+      <div class="flex gap-3">
+        <button id="loginBtn" class="flex-1 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white">Login</button>
+        <button id="guestBtn" class="flex-1 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-black">Guest</button>
+      </div>
+    </div>
+  </div>
+    <script src="./static/js/script.js"></script>
+  </body>
+</html>
