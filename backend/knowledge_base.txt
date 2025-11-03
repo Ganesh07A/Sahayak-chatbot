@@ -1,21 +1,52 @@
-college name: Shreeyash College of Engineering and Technology (SYCET)
-address: Gut No. 258, Satara Parisar, Aurangabad, Maharashtra - 431010
-principal: Dr. B. M. Patil
-chairman: Er. Basawaraj Vishwanath Mangrule
-academic dean:  Dr. P.M. Ardhapurkar
+# --- COLLEGE KNOWLEDGE BASE FOR SYCET CHATBOT ---
+# This file serves as the grounding context for all general queries.
+# Maintain a factual, concise, and professional tone.
+# The AI will use this text for Retrieval-Augmented Generation (RAG).
+
+# 1. GENERAL INFORMATION
+college_full_name: Shreeyash College of Engineering and Technology (SYCET)
+college_short_name: SYCET
 established: 2008
-institute code:02112
-vision & mission : At Shreeyash Pratishthan, we believe education is most effective when it extends beyond the classroom into real-world experiences. Our goal is to equip students not just with theoretical knowledge but also with practical skills essential for today’s competitive job market.
+institute_code: 02112
 affiliation: Dr. Babasaheb Ambedkar Technological University (DBATU)
-approved by: AICTE, New Delhi
-email: info@sycet.org
-phone: 0240-6608772 / 6608777
+approved_by: AICTE, New Delhi
+address: Gut No. 258, Satara Parisar, Chh. Sambhajinagar, Maharashtra - 431010
+contact_phone: 0240-6608772 / 6608777
+contact_email: info@sycet.org
 website: https://sycet.org
-admission process: Admissions are conducted based on MH-CET or JEE scores through CAP rounds by DTE Maharashtra.
-fees structure: For B.Tech – approximately ₹3.2 lakhs total. Polytechnic – ₹1.5 lakhs. MBA – ₹1.8 lakhs.
-departments: Computer Science,AIML,DS, Civil, Mechanical, Electrical, E&TC,
-hostel: Available for boys and girls within campus with mess facility.
-placement: Over 800+ students placed in 400+ companies across India.
-companies vi
-facilities: Library, laboratories, sports, canteen, transportation, Wi-Fi campus.
-HOD OF AIML Department is Prof. S. S. Mandawale
+vision: At Shreeyash Pratishthan, we believe education is most effective when it extends beyond the classroom into real-world experiences. Our goal is to equip students not just with theoretical knowledge but also with practical skills essential for today’s competitive job market.
+
+---
+
+# 2. ADMINISTRATION AND KEY PERSONNEL
+chairman: Er. Basawaraj Vishwanath Mangrule
+principal: Dr. B. M. Patil
+academic_dean: Dr. P.M. Ardhapurkar
+
+---
+
+# 3. ACADEMIC PROGRAMS & ADMISSIONS
+courses_offered: B.Tech in Computer Science, AIML (Artificial Intelligence and Machine Learning), DS (Data Science), Civil, Mechanical, Electrical, E&TC (Electronics and Telecommunication); also offers Polytechnic and MBA.
+admission_process_summary: Admissions are conducted based on MH-CET or JEE scores through CAP rounds by DTE Maharashtra.
+fees_structure_inquiry: The approximate total fees are: B.Tech – ₹3.2 lakhs. The detailed fee structure is available on the official college website under the 'Admissions' section.
+academic_calendar_info: The academic year is divided into two semesters. Examination schedules are released by the affiliated university DBATU.
+
+---
+
+# 4. DEPARTMENT SPECIFIC (AIML Example)
+department_AIML_name: Artificial Intelligence and Machine Learning (AIML)
+hod_AIML_name: Prof. S. S. Mandawale
+AIML_syllabus_overview: The detailed syllabus is available for download on the college site or can be accessed via the direct link [/static/files/AIML%20syllabus.pdf].
+
+---
+
+# 5. STUDENT SERVICES & FACILITIES
+hostel_facility: Separate hostel facilities are available for boys and girls within campus with mess facility.
+placement_cell_info: The Training and Placement Cell has facilitated the placement of over 800+ students in 400+ companies across India.
+general_facilities: College facilities include a well-stocked Library, various laboratories, sports facilities (a big Sports ground with less facilities), a canteen, transportation, and a fully Wi-Fi enabled campus. The college also features digital classrooms.
+staff_behaviour: The college staff are well educated with good teaching experience, and students generally do not face any issues with their behaviour or support.
+
+---
+
+# 6. EXAMINATIONS & ATTENDANCE POLICY
+minimum_attendance_required: Students must maintain a minimum of 75% attendance in theory and practical subjects as mandated by the University (DBATU).
