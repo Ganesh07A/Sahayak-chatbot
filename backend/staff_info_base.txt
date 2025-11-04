@@ -1,0 +1,12 @@
+# 4. DEPARTMENT SPECIFIC
+department_AIML_name: Artificial Intelligence and Machine Learning (AIML)
+hod_AIML_name: Prof. S. S. Mandawale (qualification: ME (CSE), B.E. (CSE), experience : 6.7 Years)
+Mechanical_syllabus_overview: The detailed syllabus is available for download on the college site or can be accessed via the direct link: https://sycet.org/images/syllabus/ee.pdf
+AIML_syllabus_overview: The detailed syllabus is available for download on the college site or can be accessed via the direct link [/static/files/AIML%20syllabus.pdf].
+hod_CSE_name: Prof. G.S.Wayal (qualification: M.Tech(CSE) Phd Pursuing, experience : 17 Years)
+hod_DS_name: Prof. R. D. Wagh (qualification: ME (CSE), experience: BE (CSE) 16 Years)
+hod_Mech_name: Dr. Sachin Baliram Shahapure (qualification: PhD (AICTE NDF/ADF)-Electrical Engineering M.Tech Electrical Power System)
+# HOD LIST
+hod_AIML_name: Prof. S. S. Mandawale \n
+hod_CSE_name: Prof. G.S.Wayal \n
+hod_DS_name: Prof. R. D. Wagh
