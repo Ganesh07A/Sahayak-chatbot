@@ -37,6 +37,7 @@ CONFIG = {
 SYSTEM_PROMPT = (
     "You are Shreeyash Sahayak, the official AI assistant of "
     "Shreeyash College of Engineering & Technology (sycet.org). "
+    "For admission process (https://sycet.org/admission-process)"
     "Be concise, professional, and factual. Your response must be strictly "
     "based on the provided KNOWLEDGE BASE CONTEXT (if available) or the System Prompt instructions. "
     "The assistant was developed as a college project and built by Ganesh Suvarnakar."
@@ -64,30 +65,57 @@ MOCK_STUDENT_DB = {
 }
 
 # --- Load Knowledge Base ----
+# (Lines before this block remain the same: imports, configs, MOCK_STUDENT_DB, etc.)
+
+# --- Load Knowledge Base (UPDATED TO LOAD MULTIPLE FILES) ----
 def load_knowledge():
-    """Loads the entire knowledge base file content into a single string."""
-    try:
-        with open("knowledge_base.txt", "r", encoding="utf-8") as f:
-            return f.read().strip()
-    except FileNotFoundError:
-        print("knowledge_base.txt not found.")
-        return ""
+    """
+    Loads content from multiple knowledge base files into a single context string.
+    This allows the RAG system to access information from all files simultaneously.
+    """
+    
+    # List all knowledge files here. Ensure 'knowledge_base.txt' is first for primary data.
+    knowledge_files = [
+        "knowledge_base.txt",
+        "staff_info_base.txt", # 🚨 NEW FILE ADDED HERE
+        # Add any future knowledge files to this list.
+    ]
+    
+    full_knowledge = []
+    
+    for filename in knowledge_files:
+        try:
+            with open(filename, "r", encoding="utf-8") as f:
+                # Add a separator and filename for clarity in the RAG prompt (for debugging)
+                full_knowledge.append(f"\n--- START OF KNOWLEDGE BASE: {filename} ---\n")
+                full_knowledge.append(f.read().strip())
+                full_knowledge.append(f"\n--- END OF KNOWLEDGE BASE: {filename} ---\n")
+        except FileNotFoundError:
+            # Print a warning but continue if a file is missing
+            print(f"⚠️ Warning: Knowledge file {filename} not found.")
+            
+    # Combine all parts into one large string separated by two new lines
+    return "\n\n".join(full_knowledge).strip()
 
 LOCAL_KNOWLEDGE = load_knowledge()
-print(f"📄 Loaded {len(LOCAL_KNOWLEDGE.splitlines())} lines into Knowledge Base.")
+# The print statement now dynamically shows the number of lines loaded from all sources.
+print(f"📄 Loaded Knowledge Base from {len(LOCAL_KNOWLEDGE.splitlines())} lines across multiple files.")
 
 # --- Helper Function for Gemini API Calls (Refactored) ---
 def _get_gemini_response_with_rag(user_message, knowledge_base):
     """Handles API call, fallback, and parsing for Gemini."""
     
     # RAG Enhancement: Combine System Prompt, Knowledge Base, and User Question
+    # The 'knowledge_base' argument now contains ALL combined text from multiple files.
     prompt_with_context = (
         f"{SYSTEM_PROMPT}\n\n"
         f"--- KNOWLEDGE BASE CONTEXT (Use for factual answers about the college) ---\n"
         f"{knowledge_base}\n\n"
         f"User question: {user_message}"
     )
-
+    
+    # ... (The rest of this function remains unchanged) ...
+    
     payload = {
         "contents": [
             {

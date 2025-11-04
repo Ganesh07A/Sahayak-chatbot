@@ -14,7 +14,8 @@ address: Gut No. 258, Satara Parisar, Chh. Sambhajinagar, Maharashtra - 431010
 contact_phone: 0240-6608772 / 6608777
 contact_email: info@sycet.org
 website: https://sycet.org
-vision: At Shreeyash Pratishthan, we believe education is most effective when it extends beyond the classroom into real-world experiences. Our goal is to equip students not just with theoretical knowledge but also with practical skills essential for today’s competitive job market.
+vision: To be recognized internationally for excellence in Education & Research to benefit society.
+mission: At Shreeyash Pratishthan, we believe education is most effective when it extends beyond the classroom into real-world experiences. Our goal is to equip students not just with theoretical knowledge but also with practical skills essential for today’s competitive job market.
 
 ---
 
@@ -22,6 +23,8 @@ vision: At Shreeyash Pratishthan, we believe education is most effective when it
 chairman: Er. Basawaraj Vishwanath Mangrule
 principal: Dr. B. M. Patil
 academic_dean: Dr. P.M. Ardhapurkar
+HEAD_of_Training_&_Placement_Cell: Prof. Anil Palve
+CEO: COL. JOY DANIEL
 
 ---
 
@@ -37,6 +40,8 @@ academic_calendar_info: The academic year is divided into two semesters. Examina
 department_AIML_name: Artificial Intelligence and Machine Learning (AIML)
 hod_AIML_name: Prof. S. S. Mandawale
 AIML_syllabus_overview: The detailed syllabus is available for download on the college site or can be accessed via the direct link [/static/files/AIML%20syllabus.pdf].
+hod_CSE_name: Prof. G.S.Wayal (qualification: M.Tech(CSE) Phd Pursuing, experience : 17 Years)
+hod_DS_name: Prof. R. D. Wagh (qualification: ME (CSE), experience: BE (CSE) 16 Years)
 
 ---
 
